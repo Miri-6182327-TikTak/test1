@@ -6,8 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    contacts =[],
-    new_contact={ fname: '', lname: '' }
+    contacts :[],
+    new_contact:{ fname: '', lname: '' }
   },
   mutations: {
     ADD_ATTRIBUTE_OLD_CONTACT(state,index, key, value) {

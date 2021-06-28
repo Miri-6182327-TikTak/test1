@@ -2,7 +2,7 @@
 
 <input name='key' type='text' placeholder='key' v-model="key"/>
 <input name='value' type='text'  placeholder='value' v-model="value"/>
-<button @click="SET_ATTRIBUTE(index,key,value)" ></button>
+<button @click="addAttribute" ></button>
 </template>
 
 
@@ -11,14 +11,20 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'keyValue',
-  props: {
-      index{
-          type:'number',
-          required: true,
-      }
-  }
+   data: function () {
+    return {
+      key,value
+    }
+  },
   methots:{
-     ...mapMutations(['ADD_ATTRIBUTE'])
+      ...mapMutations(['ADD_ATTRIBUTE_NEW_CONTACT'])
+
+    addAttribute: function():{
+        ADD_ATTRIBUTE_NEW_CONTACT(this.key,this.value)
+        this.key='';
+        this.value='';
+    }
+
   }
   
 }
