@@ -3,12 +3,29 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-       <router-link to="/add">add</router-link>
+      <contactDetails></contactDetails>
     </div>
     <router-view/>
   </div>
 </template>
+<script>
 
+import contactDetails from './components/contact-details.vue'
+
+export default {
+  name: 'App',
+  components: {contactDetails
+    
+  },
+  computed: {
+    //...mapGetters(['todos_len']),
+   // ...mapState(['hours','scm'])
+  },
+  methods: {
+    //...mapActions(['getTodos'])
+  },
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
