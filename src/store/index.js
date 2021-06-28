@@ -17,8 +17,10 @@ export default new Vuex.Store({
     ADD_ATTRIBUTE_OLD_CONTACT(state,index, key, value) {
       Vue.set(state.contacts[index], key, value);
     },
-    ADD_ATTRIBUTE_NEW_CONTACT(state,key, value) {
-      Vue.set(state.new_contact, key, value);
+    ADD_ATTRIBUTE_NEW_CONTACT(state,obj) {
+      console.log(obj.key);
+      console.log(obj.val);
+      Vue.set(state.new_contact, obj.key, obj.val);
     },
    
     DELETE_CONTACT(state,index) {
@@ -26,6 +28,12 @@ export default new Vuex.Store({
     },
     SET_USERS(state, users) {
       state.contacts = users
+    }
+  },
+  getters:{
+    GET_NEW_CONTANT(state)
+    {
+      return state.new_contact;
     }
   },
   actions: {

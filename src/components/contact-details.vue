@@ -4,13 +4,20 @@
     <input name='fname' type='text' placeholder='first name'  v-model="fname"/>
     <input name='lname' type='text' placeholder='last name'  v-model="lname"/>
     <addAttr></addAttr>
-   <button @click="ADD_CONTACT(fname+''+lname)" ></button>
+   <button @click="ADD_CONTACT(fname+''+lname)" >שמור</button>
+
+   <div>
+   <label>משתמש חדש</label>{{new_contact}}
+  
+   
+   
+   </div>
 </div>
 </template>
 
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 import addAttr  from '@/components/addAttr.vue';
 export default {
   name: 'contactDetails',
@@ -21,7 +28,10 @@ export default {
     }
   },
   methods: {
-      ...mapMutations(['ADD_CONTACT'])
+      ...mapMutations(['ADD_CONTACT']),
+  },
+    computed: {
+    ...mapState(['new_contact'])
   },
   components: {
     addAttr
