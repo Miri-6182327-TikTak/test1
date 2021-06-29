@@ -3,11 +3,15 @@
 
     <input name='fname' type='text' placeholder='first name'  v-model="fname"/>
     <input name='lname' type='text' placeholder='last name'  v-model="lname"/>
-    <addAttr></addAttr>
-   <button @click="ADD_CONTACT(fname+''+lname)" >שמור</button>
+    <addAttr :index='-1'></addAttr>
+   <button @click="save(fname+' '+lname)" >שמור</button>
 
    <div>
-   <label>משתמש חדש</label>{{new_contact}}
+   <label>משתמש חדש</label>
+   <br>
+   name: {{fname}}  {{lname}}  
+   <br>
+   {{new_contact}}
   
    
    
@@ -28,6 +32,11 @@ export default {
     }
   },
   methods: {
+      save(name){
+        this.ADD_CONTACT(name);
+        this.fname='';
+        this.lname='';
+      },
       ...mapMutations(['ADD_CONTACT']),
   },
     computed: {

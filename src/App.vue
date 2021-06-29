@@ -1,15 +1,18 @@
 <template>
-  <div id="app"> 
+  <div id="app">  
+  <listContacts></listContacts>
       <contactDetails></contactDetails>
+     
   </div>
 </template>
 <script>
 
 import contactDetails from './components/contact-details.vue'
+import listContacts from './components/list-contact.vue'
 
 export default {
   name: 'App',
-  components: {contactDetails
+  components: {contactDetails,listContacts
     
   },
   computed: {

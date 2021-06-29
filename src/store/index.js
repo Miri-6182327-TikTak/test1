@@ -13,13 +13,12 @@ export default new Vuex.Store({
     ADD_CONTACT(state,name) {
       state.new_contact.name = name;
       state.contacts.push(state.new_contact);
+      state.new_contact={};
     },
-    ADD_ATTRIBUTE_OLD_CONTACT(state,index, key, value) {
-      Vue.set(state.contacts[index], key, value);
+    ADD_ATTRIBUTE_OLD_CONTACT(state,obj) {
+      Vue.set(state.contacts[obj.index], obj.key, obj.value);
     },
     ADD_ATTRIBUTE_NEW_CONTACT(state,obj) {
-      console.log(obj.key);
-      console.log(obj.val);
       Vue.set(state.new_contact, obj.key, obj.val);
     },
    
@@ -30,12 +29,7 @@ export default new Vuex.Store({
       state.contacts = users
     }
   },
-  getters:{
-    GET_NEW_CONTANT(state)
-    {
-      return state.new_contact;
-    }
-  },
+ 
   actions: {
      async getUsers({ commit }) {
        const res = await axios.get('https://jsonplaceholder.typicode.com/users')
